@@ -1,32 +1,61 @@
-# ICU Mortality and Length of Stay Prediction
+# ICU Mortality and Length of Stay Prediction Using EHR Data
 
-A healthcare machine learning project using **MIMIC-IV clinical data** to explore early prediction of ICU mortality and length of stay using information from the **first 24 hours of ICU admission**.
+A machine learning project using **MIMIC-IV clinical data** to predict ICU mortality and length of stay using patient information from the **first 24 hours of ICU admission**.
 
-## Objectives
+## Project Overview
 
-* Predict in-hospital ICU mortality using early clinical data.
-* Predict whether survivors have a short ICU stay of **≤7 days**.
-* Identify clinical features associated with mortality and length of stay.
+The project investigates two prediction tasks:
 
-## Approach
+- **ICU Mortality Prediction:** Predict in-hospital mortality using early ICU clinical information.
+- **Length of Stay Prediction:** Among survivors, predict whether the ICU stay is **≤7 days** and estimate length of stay.
 
-The project includes data preprocessing, missing-value imputation, feature engineering, classification, and regression models.
+## Data & Preprocessing
 
-**Mortality models:** Logistic Regression · Random Forest · XGBoost · MLP
-**LOS models:** Elastic Net · KNN · Random Forest · XGBoost
+The project uses credentialed-access **MIMIC-IV** data from PhysioNet. Clinical, demographic, and diagnostic information was processed and combined using patient and admission identifiers.
+
+Key preprocessing steps included:
+
+- Processing large clinical event tables in chunks
+- Handling missing values through imputation
+- Feature engineering and encoding
+- Filtering clinically implausible values
+- Removing readmissions and very short ICU stays
+- Preparing separate datasets for mortality classification and LOS prediction
+
+## Machine Learning Models
+
+### Mortality Prediction
+
+- Logistic Regression
+- Random Forest
+- XGBoost
+- Multi-Layer Perceptron (MLP)
+
+### Length of Stay Prediction
+
+- Elastic Net
+- K-Nearest Neighbors
+- Random Forest
+- XGBoost
 
 ## Results
 
 For mortality prediction, **XGBoost achieved an ROC-AUC of 0.90**.
 
-For length-of-stay prediction, the models achieved MAE values around **0.94–0.96 days**.
+For length-of-stay prediction, the models achieved MAE values between **0.94 and 0.96 days**.
 
-Key predictors included **GCS measurements, respiratory failure, sepsis, urea nitrogen, age, heart rate, and hematocrit**.
+Important predictors identified across the tasks included **GCS measurements, respiratory failure, sepsis, urea nitrogen, age, heart rate, and hematocrit**.
 
 ## Tech Stack
 
-**Python · Pandas · NumPy · Scikit-learn · XGBoost · Matplotlib · Seaborn · MIMIC-IV(Data Set)**
+**Python · Pandas · NumPy · Scikit-learn · XGBoost · Matplotlib · Seaborn · Jupyter · Google Colab**
 
-> This project uses credentialed-access clinical data from PhysioNet.
+**Dataset:** MIMIC-IV
 
-[View the Repository →](#)
+## Project Report
+
+The complete methodology, analysis, model comparison, and results are documented in the project report.
+
+[Read the Full Project Report →](https://github.com/SushmithaSudharsan/icu-mortality-prediction-using-ehr-data/blob/main/Final_Project%20Report.pdf)
+
+[View Repository →](https://github.com/SushmithaSudharsan/icu-mortality-prediction-using-ehr-data)
